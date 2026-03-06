@@ -4,29 +4,27 @@ const router = express.Router();
 // In-memory seat storage
 const seats = {};
 
-router.post("/book/:seatId", async(req, res) => {
+// Browser-friendly booking
+router.get("/book/:seatId", async(req, res) => {
 
     const seatId = req.params.seatId;
 
     // Check if seat already booked
     if (seats[seatId] === "booked") {
-        return res.json({
-            status: "failed",
-            message: "Seat already booked"
-        });
+        return res.send(`
+            <h2>❌ Seat ${seatId} already booked</h2>
+        `);
     }
 
-    // Simulate booking delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Simulate delay (like concurrent booking)
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Book the seat
+    // Book seat
     seats[seatId] = "booked";
 
-    res.json({
-        status: "success",
-        seat: seatId
-    });
-
+    res.send(`
+        <h2>✅ Seat ${seatId} booked successfully</h2>
+    `);
 });
 
 module.exports = router;

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +13,16 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1",
+    "mongoose": "^9.2.4",
     "redis": "^5.11.0",
     "uuid": "^13.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bhavishya299/fullstack1.4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bhavishya299/fullstack1.4/issues"
+  },
+  "homepage": "https://github.com/Bhavishya299/fullstack1.4#readme"
 }
